@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperatur Converter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-image: linear-gradient(rgb(30, 0, 255),rgb(0, 200, 255));
+        }
+        .inputs{
+            width: 40vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgb(0, 0, 255);
+            padding: 50px 20px;
+            border-radius: 10px;
+        }
+
+        .inputtab{
+            text-align: center;
+        }
+
+        .inputtab input{
+            width: 16vw;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Temperatur Converter</h1>
+        <div class="inputs">
+            <div class="inputtab">
+                <label for="Celsius">Celsius</label>
+                <input type="number" id="celsius">
+            </div>
+            <div class="inputtab">
+                <label for="Fahrenheit">Fahrenheit</label>
+                <input type="number" id="fahrenheit">
+            </div>
+        </div>
+        <div class="copyright">Made By Umar Khan</div>
+    </div>
+</body>
+<script>
+    let celsius = document.getElementById("celsius");
+    let fahrenheit = document.getElementById("fahrenheit");
+    
+    celsius.oninput = function () {
+            let f = (parseFloat(celsius.value) * 9) / 5 + 32;
+            fahrenheit.value = parseFloat(f.toFixed(2));
+        }
+    fahrenheit.oninput = function () {
+            let c = ((parseFloat(
+                fahrenheit.value) - 32) * 5) / 9;
+                celsius.value = parseFloat(c.toFixed(2));
+        }
+</script>
+</html>
